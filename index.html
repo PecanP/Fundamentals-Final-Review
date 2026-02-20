@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Fundamentals of Care — Scenario Mastery Exam (60)</title>
+  <title>Fundamentals Final Review — 60 Unique Scenario Questions</title>
   <style>
     :root { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
     body { margin: 0; background: #0b1020; color: #e9eefc; }
-    .wrap { max-width: 1050px; margin: 0 auto; padding: 16px; }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 16px; }
     .card { background:#121a33; border:1px solid #22305e; border-radius:14px; padding:14px; box-shadow:0 10px 30px rgba(0,0,0,.25); }
     h1 { margin: 0 0 6px; font-size: 18px; }
     .muted { color:#a9b6e8; }
@@ -16,16 +16,14 @@
     .btn { appearance:none; border:1px solid #2a3a76; background:#1a2550; color:#e9eefc; padding:10px 12px; border-radius:10px; cursor:pointer; font-weight:650; }
     .btn.secondary { background:#0f1730; }
     .btn.good { border-color:#2a7a4f; background:#153a2b; }
-    .btn.bad { border-color:#8a2d2d; background:#3a1515; }
     .btn:disabled { opacity:.5; cursor:not-allowed; }
     .hr { height:1px; background:#22305e; margin:12px 0; }
     .qtext { font-size: 16px; line-height: 1.35; margin: 10px 0; }
-    .stem { color:#cfe0ff; margin-top:6px; }
     .opts { display:grid; gap:10px; margin-top:10px; }
     label.opt { display:flex; gap:10px; align-items:flex-start; background:#0f1730; border:1px solid #22305e; border-radius:12px; padding:10px 12px; cursor:pointer; }
     label.opt:hover { border-color:#3a54b0; }
     input[type="radio"], input[type="checkbox"] { margin-top:2px; transform: scale(1.15); }
-    .inputbox { width: 280px; max-width: 100%; background:#0f1730; border:1px solid #22305e; border-radius:10px; color:#e9eefc; padding:10px 12px; font-size:16px; }
+    .inputbox { width: 320px; max-width: 100%; background:#0f1730; border:1px solid #22305e; border-radius:10px; color:#e9eefc; padding:10px 12px; font-size:16px; }
     .feedback { margin-top:12px; padding:12px; border-radius:12px; border:1px solid #22305e; background:#0f1730; }
     .feedback.good { border-color:#2a7a4f; }
     .feedback.bad { border-color:#8a2d2d; }
@@ -38,704 +36,373 @@
   <div class="wrap">
     <div class="card" id="app"></div>
     <div class="tiny" style="margin-top:12px;">
-      Scenario focus: ABCs/priority, safety, infection control, fluids/electrolytes, oxygenation, pain/sleep, teaching, ethics/EOL, meds & dosage calculations.
+      This exam always uses the same 60-question bank, but it shuffles the order. There are <strong>no duplicate questions inside the exam</strong>.
     </div>
   </div>
 
 <script>
 /* =========================
-   Scenario Mastery Exam (60)
-   Types: single | sata | numeric
-   Numeric checking: exact or tolerance
+   60 UNIQUE QUESTIONS (no duplicates)
+   Types:
+   - single (MCQ)
+   - sata (select all that apply)
+   - numeric (calculations)
    ========================= */
 
 const QUESTIONS = [
-  // ===== Medication calculations / safety (scenario-based) =====
-  {
-    id: 1, type:"numeric", topic:"Dosage Calc",
-    prompt:"A 52-year-old patient (220 lb) is admitted with a new DVT. Provider orders enoxaparin 1 mg/kg subcut every 12 hr. The nurse confirms weight is current. Round to the whole number. What is the single dose (mg)?",
-    ansN:{v:100,t:0},
-    rat:"Convert lb→kg: 220 ÷ 2.2 = 100 kg. Dose: 1 mg/kg × 100 kg = 100 mg per dose."
-  },
-  {
-    id: 2, type:"numeric", topic:"Dosage Calc",
-    prompt:"A post-op patient is ordered cefazolin 0.3 g IM now. The vial is reconstituted to 250 mg/mL. Round to the nearest tenth. How many mL will the nurse administer?",
-    ansN:{v:1.2,t:0.05},
-    rat:"0.3 g = 300 mg. 300 ÷ 250 = 1.2 mL."
-  },
-  {
-    id: 3, type:"numeric", topic:"Dosage Calc",
-    prompt:"A patient with cellulitis is ordered clindamycin 400 mg IM. Available concentration is 155 mg/mL. Round to the nearest tenth. How many mL should be drawn up?",
-    ansN:{v:2.6,t:0.05},
-    rat:"400 ÷ 155 = 2.58… → 2.6 mL."
-  },
-  {
-    id: 4, type:"single", topic:"Equipment",
-    prompt:"You prepared a 2.6 mL IM dose. Which syringe provides the most accurate measurement?",
-    options:["3 mL syringe","5 mL syringe","10 mL syringe","Tuberculin (1 mL) syringe"],
-    ans:0,
-    rat:"Use the smallest syringe that can safely contain the dose for the most accurate markings—3 mL is best for 2.6 mL."
-  },
-  {
-    id: 5, type:"sata", topic:"Medication Safety",
-    prompt:"A nurse is preparing morning meds. Which actions reflect safe medication practice? (Select all that apply.)",
-    options:[
-      "Compare the medication label with the MAR when removing it from storage.",
-      "Use two identifiers (name and DOB/MRN) before administration.",
-      "Verify the medication by pill shape/size if the label looks different.",
-      "Compare the medication label with the MAR again at the bedside.",
-      "Document the medication as given before entering the room to save time."
-    ],
-    ans:[0,1,3],
-    rat:"Three checks + two identifiers reduce error. Pill appearance is unreliable. Chart after administration."
-  },
-  {
-    id: 6, type:"single", topic:"Allergic Reaction / Priority",
-    prompt:"A patient received a first dose of a new antibiotic 10 minutes ago. Which assessment finding requires immediate action?",
-    options:[
-      "Nausea and mild abdominal discomfort",
-      "Itching on arms without rash",
-      "New wheezing with facial swelling",
-      "Headache rated 3/10"
-    ],
-    ans:2,
-    rat:"Wheezing + facial swelling suggests anaphylaxis/airway compromise → ABC priority."
-  },
+  // ----- Medication Math / Safety (8) -----
+  {id:1,type:"numeric",topic:"Dosage Calc",
+   prompt:"A 52-year-old patient weighs 220 lb and is diagnosed with a new DVT. Order: enoxaparin 1 mg/kg subcut q12h. Round to the nearest whole mg. What is the single dose (mg)?",
+   ansN:{v:100,t:0}, rat:"220 ÷ 2.2 = 100 kg. 1 mg/kg → 100 mg per dose."},
 
-  // ===== Oxygenation / respiratory scenarios =====
-  {
-    id: 7, type:"sata", topic:"Early Hypoxia",
-    prompt:"A COPD patient becomes restless during ambulation back from the bathroom. Which findings are consistent with early hypoxia? (Select all that apply.)",
-    options:[
-      "Irritability and agitation",
-      "Cyanosis of lips and nailbeds",
-      "Respiratory rate increased from 16 to 26",
-      "New confusion (asks where they are)",
-      "Heart rate decreased from 84 to 58"
-    ],
-    ans:[0,2,3],
-    rat:"Early hypoxia: restlessness/irritability, confusion, tachypnea (often tachycardia). Cyanosis and bradycardia are late."
-  },
-  {
-    id: 8, type:"single", topic:"Oxygen Devices",
-    prompt:"A patient requires a controlled, precise FiO₂ due to CO₂ retention risk. Which device is most appropriate?",
-    options:["Nasal cannula","Venturi mask","Simple face mask","Nonrebreather mask"],
-    ans:1,
-    rat:"Venturi mask delivers the most precise/controlled FiO₂."
-  },
-  {
-    id: 9, type:"single", topic:"Respiratory Mechanics",
-    prompt:"When a patient takes a normal breath in, which physiological change allows air to enter the lungs?",
-    options:[
-      "Diaphragm contracts, thoracic volume increases, intrapulmonary pressure decreases",
-      "Diaphragm relaxes, thoracic volume decreases, intrapulmonary pressure decreases",
-      "Ribs move inward, thoracic volume decreases, pressure decreases",
-      "Intercostals relax, thoracic volume increases, pressure increases"
-    ],
-    ans:0,
-    rat:"Inhalation: diaphragm contracts down → volume ↑ → pressure ↓ → air flows in."
-  },
-  {
-    id:10, type:"single", topic:"Incentive Spirometer Teaching",
-    prompt:"A post-op patient demonstrates incentive spirometer use. Which statement indicates incorrect technique?",
-    options:[
-      "“I exhale normally first, then seal my lips on the mouthpiece.”",
-      "“I inhale slowly to raise the ball to the target mark.”",
-      "“I blow into it hard to make the ball rise.”",
-      "“I hold my breath for a few seconds, then exhale.”"
-    ],
-    ans:2,
-    rat:"Incentive spirometry requires slow deep inhalation, not forceful exhalation."
-  },
+  {id:2,type:"numeric",topic:"Dosage Calc",
+   prompt:"Order: cefazolin 0.3 g IM now. Vial after reconstitution is 250 mg/mL. Round to the nearest tenth. How many mL will you give?",
+   ansN:{v:1.2,t:0.05}, rat:"0.3 g = 300 mg. 300 ÷ 250 = 1.2 mL."},
 
-  // ===== Fluids / electrolytes scenarios =====
-  {
-    id:11, type:"sata", topic:"Fluid Volume Deficit",
-    prompt:"A patient with vomiting and diarrhea is weak and dizzy when standing. Which findings support fluid volume deficit? (Select all that apply.)",
-    options:[
-      "Decreased urine output",
-      "Distended neck veins",
-      "Dry mucous membranes",
-      "Orthostatic hypotension/syncope",
-      "Crackles in the lung bases"
-    ],
-    ans:[0,2,3],
-    rat:"FVD: low UO, dry mucosa, orthostatic hypotension. JVD/crackles suggest excess."
-  },
-  {
-    id:12, type:"sata", topic:"Fluid Volume Excess",
-    prompt:"A patient with heart failure reports worsening shortness of breath. Which findings suggest fluid volume excess? (Select all that apply.)",
-    options:[
-      "Weight gain in 48 hours",
-      "Crackles on auscultation",
-      "Flat neck veins",
-      "Edema in ankles",
-      "Dry mucous membranes"
-    ],
-    ans:[0,1,3],
-    rat:"FVE: weight gain, crackles, edema, JVD, hypertension. Flat neck veins/dry mucosa suggests deficit."
-  },
-  {
-    id:13, type:"single", topic:"Electrolytes",
-    prompt:"A patient has tingling around the mouth and muscle cramps after thyroid surgery. Which imbalance is most likely?",
-    options:["Hypokalemia","Hypocalcemia","Hypernatremia","Hypermagnesemia"],
-    ans:1,
-    rat:"Low calcium causes neuromuscular excitability (paresthesias, cramps/tetany)."
-  },
-  {
-    id:14, type:"single", topic:"Electrolytes",
-    prompt:"A patient with kidney failure has ECG changes with peaked T waves. Which imbalance is most likely?",
-    options:["Hyperkalemia","Hypokalemia","Hyponatremia","Hypocalcemia"],
-    ans:0,
-    rat:"Peaked T waves are classic for hyperkalemia."
-  },
+  {id:3,type:"numeric",topic:"Dosage Calc",
+   prompt:"Order: morphine 6 mg IV push. Supply: 10 mg/mL. Round to the nearest tenth. How many mL will you administer?",
+   ansN:{v:0.6,t:0.05}, rat:"6 ÷ 10 = 0.6 mL."},
 
-  // ===== Documentation scenarios =====
-  {
-    id:15, type:"single", topic:"Documentation",
-    prompt:"A nurse observes SOB after ambulation. Which documentation is best?",
-    options:[
-      "“Patient complained of SOB after walking.”",
-      "“Patient is hypoxic after walking to bathroom.”",
-      "“Dyspnea noted after ambulating 15 feet; RR 28; speaking in 2–3 word sentences.”",
-      "“Patient became anxious and exaggerated symptoms.”"
-    ],
-    ans:2,
-    rat:"Best charting is objective, specific, and measurable. Avoid diagnoses/judgment."
-  },
-  {
-    id:16, type:"single", topic:"Documentation",
-    prompt:"Which note is most legally defensible?",
-    options:[
-      "“Patient is rude and refusing care.”",
-      "“Patient refused dressing change; stated ‘I’m in too much pain.’ Education provided.”",
-      "“Patient is noncompliant.”",
-      "“Patient is hypoxemic and anxious.”"
-    ],
-    ans:1,
-    rat:"Use objective facts and direct quotes. Avoid labels like noncompliant/rude and diagnoses without data."
-  },
+  {id:4,type:"numeric",topic:"Dosage Calc",
+   prompt:"Order: heparin 5,000 units subcut. Supply: 10,000 units/mL. Round to the nearest tenth. How many mL will you administer?",
+   ansN:{v:0.5,t:0.05}, rat:"5000 ÷ 10000 = 0.5 mL."},
 
-  // ===== Delegation / safety scenarios =====
-  {
-    id:17, type:"single", topic:"Delegation",
-    prompt:"An RN is caring for 4 patients. Which task is appropriate to delegate to UAP?",
-    options:[
-      "Assess a new onset of chest pain",
-      "Teach an incentive spirometer to a post-op patient",
-      "Obtain routine vital signs on a stable patient",
-      "Evaluate pain response 30 minutes after IV opioid"
-    ],
-    ans:2,
-    rat:"UAP: routine vitals on stable patients. RN keeps assessment/teaching/evaluation."
-  },
-  {
-    id:18, type:"single", topic:"Delegation",
-    prompt:"Which task should the RN NOT delegate to an LPN/LVN (typical scope/policy dependent)?",
-    options:[
-      "Administer routine oral medications",
-      "Reinforce teaching from a standard plan",
-      "Initial assessment of a newly admitted patient",
-      "Perform a sterile dressing change (if trained)"
-    ],
-    ans:2,
-    rat:"Initial assessment and care planning are RN responsibilities."
-  },
+  {id:5,type:"single",topic:"Medication Safety",
+   prompt:"You are about to administer meds to a patient in bed 12. Which action best confirms you have the correct patient?",
+   options:["Ask the patient to state their name and compare name/DOB on wristband to the MAR","Verify the room number on the door matches the MAR","Ask the family member to confirm identity","Match the patient’s face to the chart photo only"],
+   ans:0, rat:"Use two identifiers (e.g., name + DOB/MRN) and match to wristband/MAR. Room number isn’t an identifier."},
 
-  // ===== Infection control scenarios =====
-  {
-    id:19, type:"single", topic:"Infection Control",
-    prompt:"A patient with C. difficile requires assistance to the bathroom. Which is the priority infection-control action?",
-    options:[
-      "Use alcohol-based sanitizer after removing gloves",
-      "Wash hands with soap and water after care",
-      "Wear an N95 respirator",
-      "Place the patient in a negative-pressure room"
-    ],
-    ans:1,
-    rat:"C. diff spores require soap and water; sanitizer is not sufficient."
-  },
-  {
-    id:20, type:"single", topic:"PPE",
-    prompt:"After providing care, which PPE removal sequence is most appropriate (common standard)?",
-    options:[
-      "Mask → gown → gloves → goggles",
-      "Gloves → gown → goggles/face shield → mask",
-      "Gown → mask → gloves → goggles",
-      "Goggles → gloves → gown → mask"
-    ],
-    ans:1,
-    rat:"Common sequence: gloves, gown, goggles/face shield, mask (follow facility policy)."
-  },
+  {id:6,type:"sata",topic:"Medication Safety",
+   prompt:"A nurse is preparing medications at the bedside. Which actions reflect safe medication practice? (Select all that apply.)",
+   options:["Compare the medication label with the MAR at the bedside","Use two identifiers before giving any medication","Crush an enteric-coated tablet to help the patient swallow","Document the medication as given before entering the room","Clarify any unclear order with the prescriber/pharmacy"],
+   ans:[0,1,4], rat:"Safe practice includes bedside label/MAR check, 2 identifiers, and clarifying unclear orders. Don’t crush enteric-coated meds; chart after administering."},
 
-  // ===== Pain / sleep / comfort scenarios =====
-  {
-    id:21, type:"single", topic:"Pain Assessment",
-    prompt:"A patient grimaces but states pain is 2/10 and refuses medication. Best nursing action?",
-    options:[
-      "Document 2/10 and no further action needed",
-      "Administer analgesic anyway because grimacing indicates severe pain",
-      "Reassess with a focused pain assessment and ask patient’s comfort goal",
-      "Notify provider immediately"
-    ],
-    ans:2,
-    rat:"Pain is subjective; validate patient report and reassess fully (location/quality/function/goal)."
-  },
-  {
-    id:22, type:"single", topic:"Sleep",
-    prompt:"A hospitalized patient reports poor sleep. Which nursing intervention is most appropriate first?",
-    options:[
-      "Schedule all care at midnight to reduce awakenings later",
-      "Cluster care to minimize nighttime interruptions",
-      "Encourage daytime napping for 4–5 hours",
-      "Increase caffeine with meals"
-    ],
-    ans:1,
-    rat:"Cluster care reduces interruptions and supports restorative sleep."
-  },
+  {id:7,type:"single",topic:"Medication Forms",
+   prompt:"A patient cannot swallow tablets and has an order for an enteric-coated medication. What should the nurse do?",
+   options:["Crush it and mix with applesauce","Split the tablet and crush half","Hold the dose and request an alternate form from provider/pharmacy","Dissolve the tablet in hot water"],
+   ans:2, rat:"Enteric-coated/extended-release meds should not be crushed. Request an alternative formulation."},
 
-  // ===== Teaching scenarios =====
-  {
-    id:23, type:"single", topic:"Patient Teaching",
-    prompt:"A patient is learning how to self-inject insulin. Which method best confirms learning?",
-    options:[
-      "Ask “Do you understand?”",
-      "Have patient read the handout aloud",
-      "Teach-back with return demonstration",
-      "Ask family member if they understand"
-    ],
-    ans:2,
-    rat:"Return demonstration is best for skill validation."
-  },
-  {
-    id:24, type:"single", topic:"Teaching Readiness",
-    prompt:"A patient is scheduled for discharge teaching but rates pain 9/10 and appears distracted. Best action?",
-    options:[
-      "Proceed quickly because discharge is today",
-      "Postpone teaching until pain is better controlled",
-      "Teach only the most complex topics first",
-      "Ask the patient to sign the teaching form"
-    ],
-    ans:1,
-    rat:"Address barriers to learning first (pain, readiness, environment)."
-  },
+  {id:8,type:"single",topic:"Adverse/Allergic Reaction",
+   prompt:"Ten minutes after receiving a first dose of a new antibiotic, the patient reports throat tightness and you hear wheezing. What is the priority action?",
+   options:["Reassure the patient and recheck in 30 minutes","Stop the medication, assess airway/breathing, and initiate emergency response per policy","Document the finding and notify the provider at the end of med pass","Offer oral fluids and deep breathing"],
+   ans:1, rat:"Possible anaphylaxis: stop exposure, manage ABCs, call for emergency help per protocol."},
 
-  // ===== Ethics/EOL/Culture scenarios =====
-  {
-    id:25, type:"single", topic:"Ethics",
-    prompt:"A competent adult refuses a blood transfusion for religious reasons. The provider explains risks. Best nursing response reflects which principle?",
-    options:["Beneficence","Autonomy","Justice","Nonmaleficence"],
-    ans:1,
-    rat:"Autonomy: competent patient’s right to refuse treatment."
-  },
-  {
-    id:26, type:"single", topic:"Informed Consent",
-    prompt:"Right before signing consent, a patient says, “I don’t understand what this procedure is for.” What should the nurse do?",
-    options:[
-      "Witness the signature and document the patient’s statement",
-      "Explain risks/benefits and obtain signature",
-      "Stop the process and notify the provider to re-explain",
-      "Tell the patient to sign and ask later"
-    ],
-    ans:2,
-    rat:"Provider obtains informed consent. Nurse stops and notifies provider if patient lacks understanding."
-  },
-  {
-    id:27, type:"single", topic:"Hospice/Palliative",
-    prompt:"A patient with end-stage disease is enrolling in hospice. Which statement is accurate?",
-    options:[
-      "Hospice means all medications must stop immediately",
-      "Hospice focuses on comfort and quality of life",
-      "Hospice is only for patients who are hospitalized",
-      "Hospice is the same as curative treatment"
-    ],
-    ans:1,
-    rat:"Hospice prioritizes comfort and quality of life."
-  },
-  {
-    id:28, type:"single", topic:"Cultural/Spiritual Care",
-    prompt:"A family requests a brief religious ritual before postmortem care begins. Best nursing action?",
-    options:[
-      "Proceed with postmortem care immediately to avoid delay",
-      "Accommodate the ritual when possible and provide privacy",
-      "Explain that rituals are not allowed in hospitals",
-      "Ask security to remove the family"
-    ],
-    ans:1,
-    rat:"Provide culturally/spiritually competent care when possible within policy and safety."
-  },
+  // ----- Oxygenation / Respiratory (8) -----
+  {id:9,type:"single",topic:"Respiratory Mechanics",
+   prompt:"When a patient inhales normally, which change allows air to flow into the lungs?",
+   options:["Diaphragm contracts → thoracic volume increases → intrapulmonary pressure decreases","Diaphragm relaxes → thoracic volume decreases → intrapulmonary pressure decreases","Ribs move inward → thoracic volume decreases → pressure decreases","Intercostals relax → thoracic volume increases → pressure increases"],
+   ans:0, rat:"Inhalation: diaphragm contracts down → volume ↑ → pressure ↓ → air in."},
 
-  // ===== Routes / mucosal meds scenarios =====
-  {
-    id:29, type:"single", topic:"Ear Drops",
-    prompt:"The nurse is teaching ear drop administration for an adult. Which instruction is correct?",
-    options:[
-      "Pull the pinna down and back to straighten the canal",
-      "Pull the pinna up and back to straighten the canal",
-      "Insert the dropper tip into the canal to prevent leaking",
-      "Pack cotton deep into the canal after drops"
-    ],
-    ans:1,
-    rat:"Adult ear: pull pinna up and back. Do not contaminate dropper or pack cotton deep."
-  },
-  {
-    id:30, type:"sata", topic:"Oral Cavity Routes",
-    prompt:"Which routes administer medication in the mouth/oral cavity? (Select all that apply.)",
-    options:["Sublingual","Buccal","Parenteral","Topical (skin)","Rectal"],
-    ans:[0,1],
-    rat:"Sublingual and buccal are oral cavity mucosal routes."
-  },
+  {id:10,type:"sata",topic:"Early Hypoxia",
+   prompt:"A post-op patient becomes restless and says, “I can’t catch my breath.” Which findings are consistent with early hypoxia? (Select all that apply.)",
+   options:["New confusion","Respiratory rate increases from 16 to 26","Cyanosis of lips","Irritability/agitation","Heart rate drops from 84 to 56"],
+   ans:[0,1,3], rat:"Early hypoxia: restlessness/irritability, confusion, tachypnea (often tachycardia). Cyanosis/bradycardia are later signs."},
 
-  // ===== Elimination / CAUTI scenario =====
-  {
-    id:31, type:"single", topic:"CAUTI Prevention",
-    prompt:"A patient has a Foley catheter. Which nursing action best reduces risk of CAUTI?",
-    options:[
-      "Disconnect tubing daily to rinse it out",
-      "Maintain a closed system and secure catheter to thigh",
-      "Keep drainage bag on the bed for easy emptying",
-      "Irrigate the catheter every shift"
-    ],
-    ans:1,
-    rat:"Closed system + securement + dependent drainage decreases CAUTI risk."
-  },
+  {id:11,type:"single",topic:"Oxygen Devices",
+   prompt:"A patient needs a controlled, precise FiO₂ because of CO₂ retention risk. Which device is most appropriate?",
+   options:["Nasal cannula","Venturi mask","Simple face mask","Nonrebreather mask"],
+   ans:1, rat:"Venturi mask provides the most precise FiO₂."},
 
-  // ===== Wounds / pressure injury scenarios =====
-  {
-    id:32, type:"single", topic:"Pressure Injury Staging",
-    prompt:"A patient has a shallow open area on the sacrum with a pink wound bed and no slough. This is most consistent with:",
-    options:["Stage 1","Stage 2","Stage 3","Stage 4"],
-    ans:1,
-    rat:"Stage 2 = partial-thickness skin loss; open shallow ulcer or blister."
-  },
-  {
-    id:33, type:"sata", topic:"Pressure Injury Prevention",
-    prompt:"An immobile patient is at high risk for pressure injury. Which interventions are appropriate? (Select all that apply.)",
-    options:[
-      "Turn/reposition on a scheduled basis",
-      "Keep head of bed as low as tolerated to reduce shear",
-      "Massage reddened bony prominences vigorously",
-      "Use moisture barrier and manage incontinence",
-      "Float heels off the bed"
-    ],
-    ans:[0,1,3,4],
-    rat:"Reposition, reduce shear, manage moisture, float heels. Do not massage reddened areas."
-  },
+  {id:12,type:"single",topic:"Incentive Spirometer",
+   prompt:"Which patient statement indicates incorrect incentive spirometer technique?",
+   options:["“I exhale normally first.”","“I inhale slowly to raise the indicator.”","“I hold my breath for a few seconds.”","“I blow into it hard to raise the ball.”"],
+   ans:3, rat:"Incentive spirometry is slow deep inhalation, not forceful exhalation."},
 
-  // ===== Mobility / fall scenario =====
-  {
-    id:34, type:"single", topic:"Falls",
-    prompt:"While ambulating, a patient suddenly becomes dizzy and begins to fall. What is the nurse’s best immediate action?",
-    options:[
-      "Try to hold the patient upright to prevent falling",
-      "Lower the patient to the floor and protect the head",
-      "Leave to get help while the patient stands still",
-      "Pull the patient back to bed quickly"
-    ],
-    ans:1,
-    rat:"Guide to floor, protect head, then call for assistance and assess."
-  },
+  {id:13,type:"single",topic:"Priority (ABCs)",
+   prompt:"Four patients call at once. Who should the nurse assess first?",
+   options:["Patient requesting pain medication for 6/10 incisional pain","Patient with sudden shortness of breath and new wheezing","Patient asking for assistance to the bathroom","Stable patient with mild nausea after breakfast"],
+   ans:1, rat:"ABCs: acute breathing compromise takes priority."},
 
-  // ===== Nutrition scenario =====
-  {
-    id:35, type:"single", topic:"Nutrition",
-    prompt:"A patient reports losing 12 lb unintentionally in 2 months and has poor appetite. Which assessment finding best supports risk of malnutrition?",
-    options:["BMI of 27","Unintentional weight loss","High HDL","Thick hair texture"],
-    ans:1,
-    rat:"Unintentional weight loss is a strong clinical indicator of malnutrition risk."
-  },
+  {id:14,type:"single",topic:"Respiratory Assessment",
+   prompt:"A patient is speaking in 2–3 word phrases with accessory muscle use. What is the nurse’s best interpretation?",
+   options:["Normal post-op anxiety","Increased work of breathing requiring prompt intervention","Pain medication side effect only","Expected after ambulation; no action needed"],
+   ans:1, rat:"Short phrases + accessory muscle use indicates respiratory distress → intervene promptly."},
 
-  // ===== Communication scenario =====
-  {
-    id:36, type:"single", topic:"Therapeutic Communication",
-    prompt:"A patient says, “I’m scared about my surgery tomorrow.” Which response is most therapeutic?",
-    options:[
-      "“Don’t worry, you’ll be fine.”",
-      "“Everyone feels that way.”",
-      "“Tell me what worries you most.”",
-      "“Let’s focus on getting your vitals now.”"
-    ],
-    ans:2,
-    rat:"Open-ended exploration supports expression and assessment of concerns."
-  },
+  {id:15,type:"single",topic:"Oxygenation",
+   prompt:"A patient’s SpO₂ drops to 88% on room air and RR is 30 with visible retractions. What is the best first nursing action?",
+   options:["Notify provider after completing shift assessment","Apply oxygen per protocol and reassess","Give oral fluids","Encourage the patient to sleep"],
+   ans:1, rat:"Provide oxygen per protocol and reassess—treat hypoxia promptly."},
 
-  // ===== More meds / safety / routes =====
-  {
-    id:37, type:"single", topic:"Do Not Crush",
-    prompt:"A patient has an order for an enteric-coated medication but cannot swallow tablets. What should the nurse do?",
-    options:[
-      "Crush the tablet and mix with applesauce",
-      "Split the tablet in half and crush one half",
-      "Hold the dose and contact provider/pharmacy for an alternative",
-      "Dissolve the tablet in hot water"
-    ],
-    ans:2,
-    rat:"Enteric-coated/ER meds should not be crushed; request alternate formulation."
-  },
-  {
-    id:38, type:"single", topic:"Enteral Tube Meds",
-    prompt:"A patient receives multiple medications via feeding tube. Which is best practice?",
-    options:[
-      "Mix all crushed meds together to reduce flushes",
-      "Flush tube between each medication",
-      "Stop checking residuals forever once the tube is placed",
-      "Administer meds with formula to improve absorption"
-    ],
-    ans:1,
-    rat:"Flush between each medication to prevent clogging and interactions."
-  },
+  {id:16,type:"single",topic:"Documentation",
+   prompt:"Which note is best practice documentation for dyspnea after ambulation?",
+   options:["“Patient complained of SOB.”","“Patient is hypoxemic after walking.”","“Dyspnea noted after ambulating 15 feet; RR 28; speaking in 2–3 word phrases.”","“Patient exaggerating symptoms.”"],
+   ans:2, rat:"Objective, specific, measurable. Avoid diagnoses and judgment."},
 
-  // ===== Sleep physiology (common slide content) =====
-  {
-    id:39, type:"single", topic:"Sleep",
-    prompt:"A nurse is teaching about sleep. Deep sleep begins in which stage?",
-    options:["NREM stage 1","NREM stage 2","NREM stage 3","REM"],
-    ans:2,
-    rat:"Deep sleep begins in NREM stage 3."
-  },
+  // ----- Fluids & Electrolytes (8) -----
+  {id:17,type:"sata",topic:"Fluid Volume Deficit",
+   prompt:"A patient with vomiting/diarrhea is dizzy when standing. Which findings support fluid volume deficit? (Select all that apply.)",
+   options:["Decreased urine output","Dry mucous membranes","Orthostatic hypotension","Crackles in lung bases","Jugular venous distention"],
+   ans:[0,1,2], rat:"FVD: low UO, dry mucosa, orthostatic hypotension. Crackles/JVD suggest excess."},
 
-  // ===== Add a few more calculation scenarios for speed (often on finals) =====
-  {
-    id:40, type:"numeric", topic:"Dosage Calc",
-    prompt:"Order: morphine 6 mg IV. Supply: 10 mg/mL. Round to nearest tenth. How many mL will the nurse administer?",
-    ansN:{v:0.6,t:0.05},
-    rat:"6 mg ÷ 10 mg/mL = 0.6 mL."
-  },
-  {
-    id:41, type:"numeric", topic:"Dosage Calc",
-    prompt:"Order: heparin 5,000 units subcut. Supply: 10,000 units/mL. Round to nearest tenth. How many mL?",
-    ansN:{v:0.5,t:0.05},
-    rat:"5000 ÷ 10000 = 0.5 mL."
-  },
-  {
-    id:42, type:"numeric", topic:"Dosage Calc",
-    prompt:"Order: ampicillin 500 mg IM. Supply: 250 mg/mL. Round to whole number. How many mL?",
-    ansN:{v:2,t:0},
-    rat:"500 ÷ 250 = 2 mL."
-  },
+  {id:18,type:"sata",topic:"Fluid Volume Excess",
+   prompt:"A patient with heart failure reports worsening shortness of breath. Which findings suggest fluid volume excess? (Select all that apply.)",
+   options:["Weight gain over 48 hours","Crackles on auscultation","Flat neck veins","Ankle edema","Dry mucous membranes"],
+   ans:[0,1,3], rat:"FVE: weight gain, crackles, edema (often JVD/HTN). Flat neck veins/dry mucosa suggest deficit."},
 
-  // ===== Priority/ABCs integrated scenarios =====
-  {
-    id:43, type:"single", topic:"Priority (ABCs)",
-    prompt:"Four patients call at once. Who should the nurse see first?",
-    options:[
-      "A patient requesting pain medication for 6/10 incision pain",
-      "A post-op patient with sudden shortness of breath and new wheezing",
-      "A patient asking for help to the bathroom",
-      "A stable patient with nausea after breakfast"
-    ],
-    ans:1,
-    rat:"ABCs—new SOB/wheezing suggests airway/breathing compromise."
-  },
-  {
-    id:44, type:"single", topic:"Fluid Excess Priority",
-    prompt:"A patient with HF has ankle edema, BP 150/88, and new crackles with dyspnea. What is the priority concern?",
-    options:["Peripheral edema","Hypertension","Impaired gas exchange","Need for diet teaching"],
-    ans:2,
-    rat:"Crackles + dyspnea indicates pulmonary congestion affecting breathing—priority."
-  },
-  {
-    id:45, type:"single", topic:"Fluid Deficit Priority",
-    prompt:"A dehydrated patient has dry mucosa and dizziness. Which finding is most concerning?",
-    options:["Thirst","Poor skin turgor","Systolic BP 84 with dizziness","Dry lips"],
-    ans:2,
-    rat:"Hypotension with symptoms suggests poor perfusion/shock risk."
-  },
+  {id:19,type:"single",topic:"Electrolytes",
+   prompt:"A patient reports tingling around the mouth and muscle cramps after thyroid surgery. Which imbalance is most likely?",
+   options:["Hypokalemia","Hypocalcemia","Hypernatremia","Hypermagnesemia"],
+   ans:1, rat:"Post-thyroid surgery can lower calcium; paresthesias/tetany point to hypocalcemia."},
 
-  // ===== Patient identity / safety scenario =====
-  {
-    id:46, type:"single", topic:"Patient Identification",
-    prompt:"Before giving medication, which is the best way to identify the patient?",
-    options:[
-      "Ask the patient their room number",
-      "Compare the patient’s name and DOB on wristband to the MAR",
-      "Ask the patient if they are here for surgery",
-      "Ask a family member to confirm identity"
-    ],
-    ans:1,
-    rat:"Use two identifiers and compare to MAR/wristband. Room number is not an identifier."
-  },
+  {id:20,type:"single",topic:"Electrolytes",
+   prompt:"A patient with kidney failure has ECG changes described as peaked T waves. Which imbalance is most likely?",
+   options:["Hyperkalemia","Hypokalemia","Hyponatremia","Hypocalcemia"],
+   ans:0, rat:"Peaked T waves are classic for hyperkalemia."},
 
-  // ===== EOL comfort scenario =====
-  {
-    id:47, type:"single", topic:"End-of-Life Care",
-    prompt:"A hospice patient asks for pain medication more frequently. Family expresses fear of addiction. Best nursing response?",
-    options:[
-      "“We should avoid opioids to prevent addiction.”",
-      "“Addiction is not the priority at end-of-life; comfort and symptom relief are.”",
-      "“We will give medication only if the family agrees.”",
-      "“Try relaxation only; medications should be stopped.”"
-    ],
-    ans:1,
-    rat:"End-of-life care prioritizes comfort; addiction is not the primary concern."
-  },
+  {id:21,type:"single",topic:"Priority (Perfusion)",
+   prompt:"A dehydrated patient is dizzy. Which finding is most concerning?",
+   options:["Thirst","Dry lips","Systolic BP 84 with dizziness","Poor skin turgor"],
+   ans:2, rat:"Hypotension with symptoms indicates poor perfusion/shock risk."},
 
-  // ===== Interpreter/culture scenario =====
-  {
-    id:48, type:"single", topic:"Interpreter Use",
-    prompt:"A patient with limited English nods but looks confused during teaching. Best action?",
-    options:[
-      "Speak louder and slower",
-      "Use the adult child to interpret sensitive topics",
-      "Request a qualified medical interpreter",
-      "Provide written materials in English only"
-    ],
-    ans:2,
-    rat:"Qualified interpreters improve accuracy and safety; family interpreters are not ideal for clinical teaching."
-  },
+  {id:22,type:"single",topic:"Fluid Balance",
+   prompt:"Which assessment is most sensitive for detecting short-term fluid changes in hospitalized adults?",
+   options:["Daily weights","Skin turgor","Blood pressure only","Capillary refill"],
+   ans:0, rat:"Daily weights are the best indicator of short-term fluid gain/loss."},
 
-  // ===== Medication documentation scenario =====
-  {
-    id:49, type:"single", topic:"Medication Documentation",
-    prompt:"Best practice for documenting medication administration is to chart:",
-    options:[
-      "Before administration to save time",
-      "After administration, including route/site if applicable and response when required",
-      "At the end of the shift",
-      "Only if the patient has side effects"
-    ],
-    ans:1,
-    rat:"Chart after giving; include required details (time, route, site, response when appropriate)."
-  },
+  {id:23,type:"single",topic:"Intake & Output",
+   prompt:"A patient’s urine output is 20 mL/hr for 3 hours. Which is the best nursing action?",
+   options:["Document and reassess next shift","Encourage fluids if not contraindicated and assess for hypovolemia/obstruction","Give diuretic immediately","Remove catheter tubing to ‘improve flow’"],
+   ans:1, rat:"Low UO needs assessment for causes and early intervention; don’t break closed systems."},
 
-  // ===== Rectal contraindication scenario =====
-  {
-    id:50, type:"single", topic:"Rectal Route Contraindications",
-    prompt:"A nurse considers giving a rectal suppository for constipation. Which condition is a contraindication?",
-    options:[
-      "History of hypertension",
-      "Swollen, inflamed hemorrhoids",
-      "Mild nausea",
-      "Hyperlipidemia"
-    ],
-    ans:1,
-    rat:"Rectal route can traumatize inflamed hemorrhoids and increase bleeding/pain."
-  },
+  {id:24,type:"single",topic:"Electrolytes/Sodium",
+   prompt:"A patient with hyponatremia becomes acutely confused and has a seizure. What is the priority action?",
+   options:["Place in Trendelenburg position","Protect airway and initiate seizure precautions; notify provider","Give a large glass of water","Ambulate to decrease confusion"],
+   ans:1, rat:"ABCs + safety: protect airway and manage seizure; urgent escalation."},
 
-  // ===== SATA mixed review: what to report immediately =====
-  {
-    id:51, type:"sata", topic:"Report Immediately",
-    prompt:"Which findings should the nurse report immediately? (Select all that apply.)",
-    options:[
-      "New stridor after a first dose of medication",
-      "SpO₂ 88% with increased work of breathing",
-      "Pain 4/10 controlled with repositioning",
-      "Sudden confusion in an older adult",
-      "Mild nausea after oral medication"
-    ],
-    ans:[0,1,3],
-    rat:"Airway compromise, significant hypoxia/work of breathing, and acute mental status change require urgent follow-up."
-  },
+  // ----- Infection Control (6) -----
+  {id:25,type:"single",topic:"Hand Hygiene",
+   prompt:"A patient is on contact precautions for C. difficile. Which is required after removing gloves and leaving the room?",
+   options:["Alcohol-based hand sanitizer only","Soap and water handwashing","No hand hygiene if gloves were worn","Double-gloving next time"],
+   ans:1, rat:"C. diff spores require soap and water."},
 
-  // ===== Add 9 more scenario questions to complete 60 (broad fundamentals) =====
-  {
-    id:52, type:"single", topic:"SBAR",
-    prompt:"A nurse calls the provider about a patient whose BP dropped from 128/76 to 90/54 and is dizzy. Which is the 'Assessment' part of SBAR?",
-    options:[
-      "“I’m calling about Mr. J who feels dizzy.”",
-      "“He had vomiting overnight and poor intake.”",
-      "“I think he is dehydrated and may be hypovolemic.”",
-      "“Can we obtain IV fluids and orthostatic vitals?”"
-    ],
-    ans:2,
-    rat:"Assessment is your clinical interpretation of findings."
-  },
-  {
-    id:53, type:"single", topic:"Health Promotion",
-    prompt:"Which is an example of secondary prevention?",
-    options:["Flu vaccination campaign","Teaching hand hygiene","BP screening at a community fair","Cardiac rehab after MI"],
-    ans:2,
-    rat:"Secondary prevention = early detection via screening."
-  },
-  {
-    id:54, type:"single", topic:"Teaching Materials",
-    prompt:"A nurse provides written instructions. Which is best practice?",
-    options:[
-      "Use medical jargon so it matches the chart",
-      "Use small print to fit more information",
-      "Use plain language and confirm understanding with teach-back",
-      "Avoid pictures to prevent confusion"
-    ],
-    ans:2,
-    rat:"Plain language + teach-back improves comprehension and retention."
-  },
-  {
-    id:55, type:"single", topic:"Skin Integrity",
-    prompt:"A patient has nonblanchable redness over the heel with intact skin. This finding is most consistent with:",
-    options:["Stage 1 pressure injury","Stage 2 pressure injury","Stage 3 pressure injury","Skin tear"],
-    ans:0,
-    rat:"Stage 1 = nonblanchable erythema, intact skin."
-  },
-  {
-    id:56, type:"single", topic:"Diabetes Safety",
-    prompt:"A patient with diabetes is diaphoretic, shaky, and confused. What should the nurse do first?",
-    options:["Give rapid-acting carbohydrate and recheck glucose","Administer long-acting insulin","Encourage walking to lower glucose","Call dietary for a low-sugar tray"],
-    ans:0,
-    rat:"Symptoms suggest hypoglycemia—treat immediately with rapid carbohydrate if safe to swallow."
-  },
-  {
-    id:57, type:"single", topic:"Medication Administration",
-    prompt:"A nurse finds a medication error after giving a dose. What is the priority action?",
-    options:["Complete incident report first","Assess the patient and notify provider per policy","Hide the error to avoid punishment","Wait to see if symptoms develop"],
-    ans:1,
-    rat:"Patient safety first: assess, notify provider/charge nurse, then follow reporting policy."
-  },
-  {
-    id:58, type:"single", topic:"Pain Reassessment",
-    prompt:"After IV opioid administration, when should the nurse reassess pain for effectiveness (typical)?",
-    options:["Immediately","Within about 15–30 minutes","In 2 hours","Next shift"],
-    ans:1,
-    rat:"IV analgesics have rapid onset; reassess within ~15–30 minutes per policy."
-  },
-  {
-    id:59, type:"single", topic:"Bowel Elimination",
-    prompt:"A patient on opioids reports no BM in 3 days. Which teaching is most appropriate?",
-    options:["Decrease fluids to reduce bloating","Increase fiber/fluids as allowed and use stool softener as ordered","Avoid walking to conserve energy","Skip laxatives completely"],
-    ans:1,
-    rat:"Opioids cause constipation; prevention includes fluids/fiber/activity and stool softeners/laxatives as ordered."
-  },
-  {
-    id:60, type:"single", topic:"Patient Safety",
-    prompt:"A confused patient tries to climb out of bed repeatedly. Which intervention best reduces fall risk?",
-    options:["Raise all 4 side rails","Place call light out of reach so patient won’t move","Use frequent rounding, bed low, alarm per policy, and place needed items within reach","Leave patient alone to promote independence"],
-    ans:2,
-    rat:"Use least restrictive safety measures: low bed, alarms per policy, rounding, and environment setup."
-  }
+  {id:26,type:"single",topic:"PPE",
+   prompt:"Which is the most common PPE removal sequence (follow facility policy)?",
+   options:["Mask → gown → gloves → goggles","Gloves → gown → goggles/face shield → mask","Gown → gloves → mask → goggles","Goggles → mask → gown → gloves"],
+   ans:1, rat:"Common removal order: gloves, gown, goggles/face shield, mask."},
+
+  {id:27,type:"single",topic:"Standard Precautions",
+   prompt:"Standard precautions should be used:",
+   options:["Only for patients with known infection","For all patients regardless of diagnosis","Only during invasive procedures","Only when blood is visible"],
+   ans:1, rat:"Standard precautions apply to all patients."},
+
+  {id:28,type:"single",topic:"Sharps Safety",
+   prompt:"After giving an injection, what is the best practice for needle disposal?",
+   options:["Recap using two hands, then dispose","Recap using one hand scoop technique","Do not recap; activate safety device and place directly in sharps container","Carry it to the medication room before discarding"],
+   ans:2, rat:"Do not recap; use safety device and dispose immediately in sharps container."},
+
+  {id:29,type:"single",topic:"Transmission Precautions",
+   prompt:"A patient with suspected tuberculosis is admitted. What is the priority isolation requirement?",
+   options:["Contact precautions","Droplet precautions","Airborne precautions with negative-pressure room","No precautions needed until confirmed"],
+   ans:2, rat:"TB requires airborne precautions and negative pressure (per policy)."},
+
+  {id:30,type:"single",topic:"Asepsis",
+   prompt:"During sterile dressing change, a sterile glove touches the bed rail. What is the best action?",
+   options:["Continue; bed rails are ‘clean enough’","Apply hand sanitizer and continue","Replace the contaminated glove and re-establish sterility","Cover the glove with gauze and continue"],
+   ans:2, rat:"Contamination breaks sterility; replace and continue with sterile technique."},
+
+  // ----- Mobility / Safety / Skin (8) -----
+  {id:31,type:"single",topic:"Falls",
+   prompt:"While ambulating, a patient becomes dizzy and begins to fall. What is the best immediate nursing action?",
+   options:["Hold the patient upright to prevent falling","Lower the patient to the floor and protect the head","Leave to get help immediately","Pull the patient back toward the bed quickly"],
+   ans:1, rat:"Guide to floor, protect head, call for help, then assess."},
+
+  {id:32,type:"single",topic:"Restraints",
+   prompt:"A confused patient repeatedly pulls at IV tubing. Which intervention is most appropriate first?",
+   options:["Apply restraints immediately","Use frequent rounding, reorientation, and move items within reach; consider sitter/alarms per policy","Raise all 4 side rails","Place call light out of reach"],
+   ans:1, rat:"Use least restrictive interventions first; restraints are last resort and require policy/monitoring."},
+
+  {id:33,type:"single",topic:"Pressure Injury",
+   prompt:"An immobile patient has nonblanchable redness over the sacrum with intact skin. This is most consistent with:",
+   options:["Stage 1 pressure injury","Stage 2 pressure injury","Stage 3 pressure injury","Skin tear"],
+   ans:0, rat:"Stage 1 = nonblanchable erythema with intact skin."},
+
+  {id:34,type:"single",topic:"Pressure Injury",
+   prompt:"A shallow open blister on the heel with a pink wound bed is most consistent with:",
+   options:["Stage 1","Stage 2","Stage 3","Stage 4"],
+   ans:1, rat:"Stage 2 = partial-thickness loss (blister/shallow open ulcer)."},
+
+  {id:35,type:"sata",topic:"Pressure Injury Prevention",
+   prompt:"Which interventions reduce pressure injury risk for an immobile patient? (Select all that apply.)",
+   options:["Turn/reposition on a schedule","Float heels off the bed","Massage reddened bony prominences vigorously","Use moisture barrier for incontinence","Keep head of bed as low as tolerated to reduce shear"],
+   ans:[0,1,3,4], rat:"Reposition, float heels, manage moisture, reduce shear; do not massage reddened areas."},
+
+  {id:36,type:"single",topic:"Safe Transfers",
+   prompt:"Before transferring a weak patient from bed to chair, what should the nurse do first?",
+   options:["Ask the patient to stand quickly to ‘test strength’","Lock the bed and wheelchair/chair, and ensure non-skid footwear","Place the chair far from the bed to encourage walking","Tell the patient to hold their breath while standing"],
+   ans:1, rat:"Safety setup first: lock equipment, non-skid footwear, proper positioning."},
+
+  {id:37,type:"single",topic:"Neurovascular Check",
+   prompt:"A patient has a cast placed for a fracture. Which finding requires immediate notification?",
+   options:["Itching under the cast","New numbness/tingling and pain unrelieved by medication","Warm toes with brisk capillary refill","Mild swelling expected after injury"],
+   ans:1, rat:"Neurovascular compromise (pain, paresthesia) is an emergency."},
+
+  {id:38,type:"single",topic:"Wound Drainage",
+   prompt:"A surgical dressing has new bright-red drainage soaking through. What is the priority action?",
+   options:["Reinforce the dressing and document; recheck later","Mark the drainage outline/time, assess vitals, and notify provider if increasing/unstable","Remove the dressing to inspect the incision fully","Ignore; this is expected post-op"],
+   ans:1, rat:"Assess bleeding and stability; mark/monitor; escalate if worsening."},
+
+  // ----- Elimination (4) -----
+  {id:39,type:"single",topic:"CAUTI Prevention",
+   prompt:"A patient has a Foley catheter. Which action best reduces CAUTI risk?",
+   options:["Disconnect tubing to empty faster","Maintain a closed system and secure catheter to the thigh","Keep the drainage bag above bladder level","Irrigate the catheter every shift"],
+   ans:1, rat:"Closed system + securement + dependent drainage reduce infection risk."},
+
+  {id:40,type:"single",topic:"Constipation",
+   prompt:"A patient on opioids reports no bowel movement in 3 days. Which teaching is most appropriate?",
+   options:["Decrease fluids to prevent bloating","Increase fiber/fluids as allowed and use stool softener/laxative as ordered","Avoid walking to conserve energy","Stop all laxatives permanently"],
+   ans:1, rat:"Opioids cause constipation; prevention includes fluids, fiber, activity, and ordered meds."},
+
+  {id:41,type:"single",topic:"Urinary Retention",
+   prompt:"A post-op patient has not voided in 8 hours and reports suprapubic fullness. What should the nurse do first?",
+   options:["Document and reassess later","Assess bladder distention and perform bladder scan per protocol","Restrict fluids to prevent overfilling","Give a diuretic"],
+   ans:1, rat:"Assess for retention and follow protocol (scan/straight cath order if indicated)."},
+
+  {id:42,type:"single",topic:"Bowel Assessment",
+   prompt:"A patient reports black, tarry stools. What is the nurse’s best initial action?",
+   options:["Reassure; it is normal with constipation","Assess for GI bleeding risk and notify provider; check vitals","Administer an enema immediately","Encourage foods high in iron only"],
+   ans:1, rat:"Melena suggests GI bleeding; assess stability and escalate."},
+
+  // ----- Nutrition (4) -----
+  {id:43,type:"single",topic:"Nutrition",
+   prompt:"A patient has unintentionally lost 12 lb in 2 months and has poor appetite. Which finding best supports malnutrition risk?",
+   options:["BMI of 27","Unintentional weight loss","High HDL","Thick hair texture"],
+   ans:1, rat:"Unintentional weight loss is a strong malnutrition indicator."},
+
+  {id:44,type:"single",topic:"Aspiration Precautions",
+   prompt:"A patient with dysphagia coughs during liquids. Which nursing action best reduces aspiration risk?",
+   options:["Offer thin liquids quickly","Keep patient supine for comfort","Position upright and follow speech/texture recommendations","Place food in the back of the mouth"],
+   ans:2, rat:"Upright positioning and texture modifications reduce aspiration risk."},
+
+  {id:45,type:"single",topic:"Diabetes Safety",
+   prompt:"A diabetic patient becomes diaphoretic, shaky, and confused. What is the best first action if the patient can swallow?",
+   options:["Give rapid-acting carbohydrate and recheck glucose","Administer long-acting insulin","Encourage walking to ‘burn sugar’","Call dietary for a low-sugar tray"],
+   ans:0, rat:"Treat suspected hypoglycemia immediately (fast carbs) then recheck."},
+
+  {id:46,type:"single",topic:"Nutrition Support",
+   prompt:"A patient on tube feeds has abdominal distention and nausea. What is the best nursing action?",
+   options:["Increase the feeding rate","Stop the feeding temporarily and assess tolerance per protocol; notify provider as indicated","Ignore; distention is expected","Flush with 200 mL immediately regardless of orders"],
+   ans:1, rat:"Assess intolerance and follow protocol (hold/notify). Don’t increase rate."},
+
+  // ----- Pain / Sleep (4) -----
+  {id:47,type:"single",topic:"Pain Assessment",
+   prompt:"A patient is grimacing but states pain is 2/10 and refuses medication. What is the best nursing action?",
+   options:["Document 2/10 and end assessment","Give analgesic anyway because grimacing means severe pain","Complete focused pain assessment and ask for the patient’s comfort goal","Notify provider immediately"],
+   ans:2, rat:"Pain is subjective. Assess thoroughly and align care to patient’s goal."},
+
+  {id:48,type:"single",topic:"Pain Reassessment",
+   prompt:"After IV opioid administration, when should the nurse reassess pain effectiveness (typical)?",
+   options:["Immediately","Within about 15–30 minutes","In 2 hours","Next shift"],
+   ans:1, rat:"IV opioids act quickly; reassess within ~15–30 minutes per policy."},
+
+  {id:49,type:"single",topic:"Nonpharmacologic Pain",
+   prompt:"Which intervention best aligns with gate-control theory for pain reduction?",
+   options:["Strict bedrest only","Heat/cold therapy or TENS","NPO status","Limiting family visitation"],
+   ans:1, rat:"Heat/cold, massage, and TENS can reduce pain transmission (gate control)."},
+
+  {id:50,type:"single",topic:"Sleep",
+   prompt:"A hospitalized patient reports poor sleep. Which intervention is best first?",
+   options:["Schedule all care at midnight","Cluster care to minimize nighttime interruptions","Encourage 4–5 hours daytime napping","Increase caffeine with meals"],
+   ans:1, rat:"Clustering care reduces interruptions and supports restorative sleep."},
+
+  // ----- Teaching / Communication (4) -----
+  {id:51,type:"single",topic:"Teaching",
+   prompt:"A patient is learning insulin self-injection. Which method best confirms learning?",
+   options:["Ask “Do you understand?”","Teach-back with return demonstration","Provide a long pamphlet and leave","Ask family if they understand"],
+   ans:1, rat:"Return demonstration is the best way to confirm skill learning."},
+
+  {id:52,type:"single",topic:"Readiness to Learn",
+   prompt:"A patient is scheduled for discharge teaching but rates pain 9/10 and cannot focus. Best action?",
+   options:["Proceed quickly because discharge is today","Postpone teaching until pain is better controlled","Teach complex topics first","Ask patient to sign the teaching form"],
+   ans:1, rat:"Address barriers first (pain/readiness) to make teaching effective."},
+
+  {id:53,type:"single",topic:"Therapeutic Communication",
+   prompt:"A patient says, “I’m scared about my surgery tomorrow.” Which response is most therapeutic?",
+   options:["“Don’t worry, you’ll be fine.”","“Everyone feels that way.”","“Tell me what worries you most.”","“Let’s focus on your vitals now.”"],
+   ans:2, rat:"Open-ended exploration helps assess concerns and provides support."},
+
+  {id:54,type:"single",topic:"Interpreter",
+   prompt:"A patient with limited English nods but appears confused during teaching. Best action?",
+   options:["Speak louder and slower","Use the adult child to interpret sensitive topics","Request a qualified medical interpreter","Provide written materials in English only"],
+   ans:2, rat:"Qualified interpreters improve accuracy, safety, and consent/teaching quality."},
+
+  // ----- Ethics / End-of-Life / Culture (6) -----
+  {id:55,type:"single",topic:"Ethics",
+   prompt:"A competent patient refuses a blood transfusion for religious reasons after risks are explained. Which principle is primarily being respected?",
+   options:["Beneficence","Autonomy","Justice","Nonmaleficence"],
+   ans:1, rat:"Autonomy: the right of a competent patient to choose/refuse."},
+
+  {id:56,type:"single",topic:"Informed Consent",
+   prompt:"Right before signing consent, a patient says, “I don’t understand what this procedure is for.” What should the nurse do?",
+   options:["Witness the signature anyway","Explain risks/benefits in detail and obtain the signature","Stop and notify the provider to re-explain","Tell the patient to sign and ask later"],
+   ans:2, rat:"The provider must explain; the nurse stops and requests clarification."},
+
+  {id:57,type:"single",topic:"Hospice",
+   prompt:"Which statement best describes hospice care?",
+   options:["Focuses on cure at any cost","Focuses on comfort and quality of life","Only provided in hospitals","Requires stopping all medications immediately"],
+   ans:1, rat:"Hospice prioritizes comfort and quality of life; meds may continue for symptom control."},
+
+  {id:58,type:"single",topic:"End-of-Life Comfort",
+   prompt:"A hospice patient requests pain medication more frequently. Family fears addiction. Best response?",
+   options:["“We should avoid opioids to prevent addiction.”","“Addiction is not the priority at end-of-life; comfort is.”","“We will only medicate if the family agrees.”","“Relaxation only—no medication.”"],
+   ans:1, rat:"End-of-life care prioritizes comfort; addiction is not the main concern."},
+
+  {id:59,type:"single",topic:"Cultural/Spiritual Care",
+   prompt:"A family requests a brief religious ritual before postmortem care begins. Best nursing action?",
+   options:["Proceed immediately with postmortem care","Accommodate the ritual when possible and provide privacy","Explain rituals are not allowed","Call security to remove family"],
+   ans:1, rat:"Provide culturally/spiritually competent care when possible within policy and safety."},
+
+  {id:60,type:"single",topic:"Legal/Safety",
+   prompt:"A nurse realizes a medication error occurred (wrong dose given). What is the priority action?",
+   options:["Complete an incident report first","Assess the patient and notify provider/charge nurse per policy","Hide the error to avoid consequences","Wait to see if symptoms develop"],
+   ans:1, rat:"Patient safety first: assess, notify appropriate parties, then follow reporting process."},
 ];
 
-// ================== Engine ==================
-function shuffle(arr){ const a=arr.slice(); for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]];} return a; }
+// ---------- No-repeat guarantee inside an exam run ----------
+function shuffle(arr){
+  const a = arr.slice();
+  for(let i=a.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [a[i],a[j]]=[a[j],a[i]];
+  }
+  return a;
+}
 function arraysEqual(a,b){ if(a.length!==b.length) return false; for(let i=0;i<a.length;i++) if(a[i]!==b[i]) return false; return true; }
-function esc(str){ return String(str).replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;"); }
+function esc(s){
+  return String(s).replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;")
+                  .replaceAll('"',"&quot;").replaceAll("'","&#039;");
+}
 
 const state = { order: [], idx: 0, answers: new Map(), timerOn:false, timerSec:0, tick:null, startTs:null };
 
 function renderStart(){
   const app = document.getElementById("app");
   app.innerHTML = `
-    <h1>Fundamentals of Care — Scenario Mastery Exam (60)</h1>
-    <div class="muted">Descriptive patient scenarios • MCQ + SATA + calculations • Rationales • Retest missed only</div>
+    <h1>Fundamentals Final Review — 60 Unique Scenario Questions</h1>
+    <div class="muted">Scenario-based • MCQ + SATA + calculations • Rationales • <strong>No duplicates inside the exam</strong></div>
     <div class="hr"></div>
     <div class="row">
-      <button class="btn good" id="start">Start (Shuffled)</button>
-      <button class="btn secondary" id="startFixed">Start (In Order)</button>
+      <button class="btn good" id="startShuf">Start (Shuffled)</button>
+      <button class="btn secondary" id="startOrd">Start (In Order)</button>
       <button class="btn" id="startTimed">Start Timed (75 min)</button>
       <span class="pill" id="timer"></span>
     </div>
     <div class="hr"></div>
-    <div class="tiny">Numeric: enter numeric only. SATA is all-or-nothing (typical exam scoring).</div>
+    <div class="tiny">Numeric: enter a number only. SATA is all-or-nothing (typical exam scoring).</div>
   `;
-  document.getElementById("start").onclick = ()=>startExam(true,false,75);
-  document.getElementById("startFixed").onclick = ()=>startExam(false,false,75);
-  document.getElementById("startTimed").onclick = ()=>startExam(true,true,75);
+  document.getElementById("startShuf").onclick = ()=>startExam(true,false,75);
+  document.getElementById("startOrd").onclick  = ()=>startExam(false,false,75);
+  document.getElementById("startTimed").onclick= ()=>startExam(true,true,75);
 }
 
 function startExam(shuffleOrder=true, timed=false, minutes=75){
+  // EXACTLY ONCE each question id 1..60
   state.order = QUESTIONS.map(q=>q.id);
   if(shuffleOrder) state.order = shuffle(state.order);
+
   state.idx = 0;
   state.answers.clear();
   state.startTs = Date.now();
+
   state.timerOn = timed;
   state.timerSec = minutes*60;
   if(state.tick) clearInterval(state.tick);
@@ -817,6 +484,7 @@ function renderQuestion(){
   const q = getQ();
   const app = document.getElementById("app");
   const progress = `${state.idx+1} / ${state.order.length}`;
+
   let html = `
     <div class="row" style="justify-content:space-between;">
       <div class="row">
@@ -824,7 +492,7 @@ function renderQuestion(){
         <span class="pill">${esc(q.topic)}</span>
         <span class="pill" id="timer"></span>
       </div>
-      <button class="btn secondary" id="endBtn">End & Review</button>
+      <button class="btn secondary" id="endBtn">End & Score</button>
     </div>
     <div class="qtext"><strong>${esc(q.prompt)}</strong></div>
   `;
@@ -919,20 +587,26 @@ function showFeedback(q, res){
 
 function renderResults(){
   if(state.tick) clearInterval(state.tick);
+
   const total = state.order.length;
   let correct = 0;
   const missed = [];
   state.order.forEach(id=>{
-    const q = QUESTIONS.find(x=>x.id===id);
-    const res = state.answers.get(id) || {correct:false};
-    if(res.correct) correct++;
+    const res = state.answers.get(id);
+    if(res && res.correct) correct++;
     else missed.push(id);
   });
+
   const pct = Math.round((correct/total)*100);
   const minutesUsed = Math.round((Date.now()-state.startTs)/60000);
 
+  const missedPreview = missed.slice(0,12).map(id=>{
+    const q = QUESTIONS.find(x=>x.id===id);
+    return `<li><span class="tag">${esc(q.topic)}</span> ${esc(q.prompt)}</li>`;
+  }).join("");
+
   document.getElementById("app").innerHTML = `
-    <h1>Results — Scenario Mastery Exam</h1>
+    <h1>Results — 60 Unique Scenario Questions</h1>
     <div class="row">
       <span class="pill">Score: <strong>${correct}/${total}</strong> (${pct}%)</span>
       <span class="pill">Missed: ${missed.length}</span>
@@ -941,22 +615,19 @@ function renderResults(){
     <div class="hr"></div>
     <div class="row">
       <button class="btn good" id="restart">Restart (Shuffled)</button>
-      <button class="btn bad" id="retest" ${missed.length===0?"disabled":""}>Retest Missed Only</button>
       <button class="btn secondary" id="home">Home</button>
     </div>
     <div class="hr"></div>
-    <div class="tiny">Retest missed only until you can clear them in one pass — that’s how you turn the final into a formality.</div>
+    <div class="tiny">
+      No “retest missed” button on purpose (it repeats questions). If you want a <em>review mode</em> that shows missed rationales without re-asking, I can add it.
+    </div>
+    <div class="hr"></div>
+    <div class="tiny"><strong>Missed question preview (first 12):</strong></div>
+    <ol class="tiny">${missedPreview || "<li>None — clean sweep.</li>"}</ol>
   `;
 
   document.getElementById("restart").onclick = ()=>startExam(true,false,75);
   document.getElementById("home").onclick = ()=>renderStart();
-  document.getElementById("retest").onclick = ()=>{
-    state.order = missed.slice();
-    state.idx = 0;
-    state.answers.clear();
-    state.timerOn = false;
-    renderQuestion();
-  };
 }
 
 renderStart();
